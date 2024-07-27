@@ -1,7 +1,6 @@
 import 'package:advance_country_picker/advance_country_picker.dart';
 import 'package:flutter/material.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
@@ -34,37 +33,37 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
       body: Center(
-
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-
-            const SizedBox(height: 10,),
-            CountryCodeWidget(
-              onTap: (country){
-
-              },
+            const SizedBox(
+              height: 10,
             ),
-            const SizedBox(height: 40,),
+            CountryCodeWidget(
+              onTap: (country) {},
+            ),
+            const SizedBox(
+              height: 40,
+            ),
             const Padding(
               padding: EdgeInsets.all(15),
-              child: AdvanceCountryCodeInputField(hintText: "XXXXXXXXXX",),
+              child: AdvanceCountryCodeInputField(
+                hintText: "XXXXXXXXXX",
+              ),
             )
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: ()async{
+        onPressed: () async {
           await AdvanceCountryPicker().showCountryPickerDialog(context);
         },
         tooltip: 'open country picker',

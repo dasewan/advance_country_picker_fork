@@ -1,4 +1,3 @@
-
 class Country {
   String alpha2;
   String alpha3;
@@ -78,7 +77,8 @@ class Country {
       dialCode: json['dialCode'],
       languagesOfficial: List<String>.from(json['languagesOfficial']),
       languagesSpoken: List<String>.from(json['languagesSpoken']),
-      nationalDestinationCodeLengths: List<int>.from(json['nationalDestinationCodeLengths']),
+      nationalDestinationCodeLengths:
+          List<int>.from(json['nationalDestinationCodeLengths']),
       nationalNumberLengths: List<int>.from(json['nationalNumberLengths']),
       nationalPrefix: json['nationalPrefix'],
       nationality: json['nationality'],
@@ -89,7 +89,8 @@ class Country {
       unofficialNames: List<String>.from(json['unofficialNames']),
       addressFormat: json['addressFormat'],
       altCurrency: json['altCurrency'],
-      isoShortNameByLocale: Map<String, String>.from(json['isoShortNameByLocale']),
+      isoShortNameByLocale:
+          Map<String, String>.from(json['isoShortNameByLocale']),
     );
   }
 

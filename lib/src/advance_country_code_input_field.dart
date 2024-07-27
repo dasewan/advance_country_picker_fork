@@ -42,19 +42,18 @@ class PhoneNumberInputState extends State<AdvanceCountryCodeInputField> {
   Country? _selectedCountry;
   AdvanceCountryPicker picker = AdvanceCountryPicker();
 
-
-  _loadInitialCountry()async{
-    if(picker.countries.isEmpty){
+  _loadInitialCountry() async {
+    if (picker.countries.isEmpty) {
       await picker.loadCountries(filterCountries: widget.filteredCountries);
     }
-    if(picker.countries.isNotEmpty){
-      _selectedCountry = picker.countries.firstWhere((e)=> e.name == "Pakistan");
+    if (picker.countries.isNotEmpty) {
+      _selectedCountry =
+          picker.countries.firstWhere((e) => e.name == "Pakistan");
 
-      setState(() {
-
-      });
+      setState(() {});
     }
   }
+
   @override
   void initState() {
     super.initState();
@@ -81,15 +80,14 @@ class PhoneNumberInputState extends State<AdvanceCountryCodeInputField> {
 
   @override
   Widget build(BuildContext context) {
-    if(widget.initialCountry != null){
+    if (widget.initialCountry != null) {
       _selectedCountry = widget.initialCountry;
     }
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 0),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(widget.borderRadius ?? 8),
-        border: Border.all(color: widget.borderColor ?? Colors.grey)
-      ),
+          borderRadius: BorderRadius.circular(widget.borderRadius ?? 8),
+          border: Border.all(color: widget.borderColor ?? Colors.grey)),
       child: Row(
         children: [
           CountryCodeWidget(

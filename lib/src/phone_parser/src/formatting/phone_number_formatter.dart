@@ -5,7 +5,6 @@ import '../metadata/models/phone_metadata_formats.dart';
 import '../parsers/_national_number_parser.dart';
 import '../regex/match_entirely_extension.dart';
 
-
 class PhoneNumberFormatter {
   /// format national number for international use
   static String formatNsn(String nsn, IsoCode isoCode) {

@@ -1,4 +1,3 @@
-
 import '../metadata/metadata_finder.dart';
 import '../metadata/models/phone_metadata.dart';
 
