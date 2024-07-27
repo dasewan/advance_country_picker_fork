@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../advance_country_picker.dart';
-import 'country.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
 
@@ -23,7 +22,7 @@ class AdvanceCountryPicker {
 
   Future<List<Country>> loadCountries({List<String> filterCountries = const []}) async {
     // Load the JSON string from the asset
-    String jsonString = await rootBundle.loadString('assets/json/countries.json');
+    String jsonString = await rootBundle.loadString('packages/advance_country_picker/assets/json/countries.json');
 
     // Decode the JSON string into a Dart object
     List<dynamic> jsonList = jsonDecode(jsonString);

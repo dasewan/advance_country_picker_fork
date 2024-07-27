@@ -176,7 +176,7 @@ class _AdvanceCountryPickerWidgetState extends State<AdvanceCountryPickerWidget>
                     children: <Widget>[
                       Image.asset(
                         _filteredList[index].flag,
-                        // package: countryCodePackageName,
+                        package: countryCodePackageName,
                         width: widget.flagIconWidth,
                         height: widget.flagIconHeight,
                       ),

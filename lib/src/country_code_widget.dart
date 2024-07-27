@@ -1,5 +1,3 @@
-library advancecountrypicker;
-
 import 'package:flutter/material.dart';
 
 import '../advance_country_picker.dart';
@@ -64,12 +62,12 @@ class _CountryCodeWidgetState extends State<CountryCodeWidget> {
         children: [
           Image.asset(
             (_selectedCountry?.flag) ?? "assets/flags/pak.png",
-            // package: countryCodePackageName,
+            package: countryCodePackageName,
             width: widget.flagIconWidth,
             height: widget.flagIconHeight,
           ),
           const SizedBox(width: 6,),
-          Text(_selectedCountry?.dialCode ?? "", style: widget.textStyle ?? const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),)
+          Text(_selectedCountry?.dialCode ?? "+92", style: widget.textStyle ?? const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),)
         ],
       ),
     );
