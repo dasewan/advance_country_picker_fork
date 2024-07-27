@@ -1,10 +1,10 @@
 name: advance_country_picker
 description: "A flutter package to provide a list of all countries with multiple fields, methods, widgets, phone parser, validators and formatters"
-version: 1.0.0
+version: 1.0.0+2
 homepage: https://github.com/abdulrehman192/advance_country_picker.git
 
 environment:
-  sdk: '>=3.4.4 <4.0.0'
+  sdk: '>=3.0.0 <4.0.0'
   flutter: ">=1.17.0"
 
 dependencies:

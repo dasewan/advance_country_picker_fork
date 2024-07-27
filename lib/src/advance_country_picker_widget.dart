@@ -5,7 +5,7 @@ import '../advance_country_picker.dart';
 const TextStyle _defaultItemTextStyle = TextStyle(fontSize: 16);
 const TextStyle _defaultSearchInputStyle = TextStyle(fontSize: 16);
 const String _kDefaultSearchHintText = 'Search country name, code';
-const String countryCodePackageName = 'advance_country_picker';
+
 
 class AdvanceCountryPickerWidget extends StatefulWidget {
   /// This callback will be called on selection of a [Country].
@@ -39,7 +39,7 @@ class AdvanceCountryPickerWidget extends StatefulWidget {
   final List<String> filteredCountries;
 
   const AdvanceCountryPickerWidget({
-    Key? key,
+    super.key,
     this.onSelected,
     this.itemTextStyle = _defaultItemTextStyle,
     this.searchInputStyle = _defaultSearchInputStyle,
@@ -50,19 +50,18 @@ class AdvanceCountryPickerWidget extends StatefulWidget {
     this.showSeparator = false,
     this.focusSearchBox = false,
     this.filteredCountries = const []
-  }) : super(key: key);
+  });
 
   @override
-  _AdvanceCountryPickerWidgetState createState() => _AdvanceCountryPickerWidgetState();
+  AdvanceCountryPickerWidgetState createState() => AdvanceCountryPickerWidgetState();
 }
 
-class _AdvanceCountryPickerWidgetState extends State<AdvanceCountryPickerWidget> {
+class AdvanceCountryPickerWidgetState extends State<AdvanceCountryPickerWidget> {
   List<Country> _list = [];
   List<Country> _filteredList = [];
   final TextEditingController _controller =  TextEditingController();
   final ScrollController _scrollController =  ScrollController();
   bool _isLoading = false;
-  Country? _currentCountry;
 
   void _onSearch(text) {
     if (text == null || text.isEmpty) {

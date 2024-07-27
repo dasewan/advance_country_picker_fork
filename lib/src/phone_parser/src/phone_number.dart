@@ -1,5 +1,4 @@
 import '../phone_numbers_parser.dart';
-import 'iso_codes/iso_code.dart';
 import 'metadata/metadata_finder.dart';
 import 'parsers/_text_parser.dart';
 import 'validation/validator.dart';
