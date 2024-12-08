@@ -10,6 +10,9 @@ class CountryCodeWidget extends StatefulWidget {
   final Function(Country?) onTap;
   final SelectorType selectorType;
   final List<String> filteredCountries;
+  final String local;
+  final String title;
+  final String searchHintText;
   const CountryCodeWidget(
       {super.key,
       this.country,
@@ -18,7 +21,11 @@ class CountryCodeWidget extends StatefulWidget {
       this.textStyle,
       required this.onTap,
       this.selectorType = SelectorType.bottomSheet,
-      this.filteredCountries = const []});
+      this.filteredCountries = const [],
+      this.local = 'en',
+      this.title = 'Choose country',
+      this.searchHintText = 'Search country name, code'
+      });
 
   @override
   State<CountryCodeWidget> createState() => _CountryCodeWidgetState();
@@ -56,7 +63,7 @@ class _CountryCodeWidgetState extends State<CountryCodeWidget> {
         if (widget.selectorType == SelectorType.dialogue) {
           _selectedCountry = await picker.showCountryPickerDialog(context);
         } else {
-          _selectedCountry = await picker.showCountryPickerSheet(context);
+          _selectedCountry = await picker.showCountryPickerSheet(context,title: widget.title, searchHintText: widget.searchHintText);
         }
         setState(() {});
         widget.onTap(_selectedCountry);

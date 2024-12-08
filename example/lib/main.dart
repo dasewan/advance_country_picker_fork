@@ -48,7 +48,9 @@ class _MyHomePageState extends State<MyHomePage> {
               height: 10,
             ),
             CountryCodeWidget(
-              onTap: (country) {},
+              onTap: (country) {
+                print(country?.name);
+              },
             ),
             const SizedBox(
               height: 40,
