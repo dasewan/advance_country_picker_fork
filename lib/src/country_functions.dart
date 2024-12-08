@@ -82,7 +82,9 @@ class AdvanceCountryPicker {
       double flagIconWidth = 32,
       double flagIconHeight = 22,
       bool showSeparator = false,
-      String searchHintText = "Search country name, code"}) async {
+      String searchHintText = "Search country name, code",
+      String local = "en"
+      }) async {
     assert(heightFactor <= 0.9 && heightFactor >= 0.4,
         'heightFactor must be between 0.4 and 0.9');
     return await showModalBottomSheet<Country?>(
@@ -139,6 +141,7 @@ class AdvanceCountryPicker {
                     flagIconWidth: flagIconWidth,
                     flagIconHeight: flagIconHeight,
                     focusSearchBox: focusSearchBox,
+                    local: local,
                   ),
                 ),
               ],
