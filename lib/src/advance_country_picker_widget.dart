@@ -34,6 +34,7 @@ class AdvanceCountryPickerWidget extends StatefulWidget {
 
   ///This will change the hint of the search box. Alternatively [searchInputDecoration] can be used to change decoration fully.
   final String searchHintText;
+  final String local;
 
   ///This will load only the given countries
   final List<String> filteredCountries;
@@ -47,6 +48,7 @@ class AdvanceCountryPickerWidget extends StatefulWidget {
       this.searchHintText = _kDefaultSearchHintText,
       this.flagIconWidth = 32,
       this.flagIconHeight = 22,
+      this.local = 'en',
       this.showSeparator = false,
       this.focusSearchBox = false,
       this.filteredCountries = const []});
@@ -63,7 +65,6 @@ class AdvanceCountryPickerWidgetState
   final TextEditingController _controller = TextEditingController();
   final ScrollController _scrollController = ScrollController();
   bool _isLoading = false;
-
   void _onSearch(text) {
     if (text == null || text.isEmpty) {
       setState(() {
@@ -85,7 +86,10 @@ class AdvanceCountryPickerWidgetState
                     .startsWith(text.toString().toLowerCase()) ||
                 element.nationality
                     .toLowerCase()
-                    .startsWith(text.toString().toLowerCase()))
+                    .startsWith(text.toString().toLowerCase()) ||
+                    (element.languagesOfficial.length>0 && element.isoShortNameByLocale[element.languagesOfficial[0]] != null && element.isoShortNameByLocale[element.languagesOfficial[0]]!.startsWith(text.toString())) ||
+                    element.isoShortNameByLocale[widget.local]!.startsWith(text.toString().toLowerCase())
+        )
             .map((e) => e)
             .toList();
       });
@@ -190,11 +194,30 @@ class AdvanceCountryPickerWidgetState
                             const SizedBox(
                               width: 16,
                             ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  '${_filteredList[index].isoShortNameByLocale[widget.local]}',
+                                  style: widget.itemTextStyle,
+                                ),
+                                _filteredList[index].languagesOfficial.length>0 && _filteredList[index].isoShortNameByLocale[_filteredList[index].languagesOfficial[0]] != null ? Text(
+                                  '${_filteredList[index].isoShortNameByLocale[_filteredList[index].languagesOfficial[0]]}',
+                                  style: const TextStyle(fontSize: 12,color: Colors.grey),
+                                ) : Text(
+                                  '${_filteredList[index].isoShortNameByLocale['en']}',
+                                  style: const TextStyle(fontSize: 12,color: Colors.grey),
+                                ) ,
+                              ],
+                            ),
                             Expanded(
-                                child: Text(
-                              '${_filteredList[index].dialCode} ${_filteredList[index].name}',
-                              style: widget.itemTextStyle,
-                            )),
+                                child: Align(
+                                  alignment: Alignment.centerRight,
+                                  child: Text(
+                                                                '${_filteredList[index].dialCode}',
+                                                                style: widget.itemTextStyle,
+                                                              ),
+                                )),
                           ],
                         ),
                       ),

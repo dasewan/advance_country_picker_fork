@@ -70,7 +70,7 @@ class AdvanceCountryPicker {
   }
 
   Future<Country?> showCountryPickerSheet(BuildContext context,
-      {Widget? title,
+      {String? title,
       Widget? cancelWidget,
       double cornerRadius = 25,
       bool focusSearchBox = false,
@@ -110,15 +110,15 @@ class AdvanceCountryPicker {
                                 padding: WidgetStatePropertyAll(
                                     EdgeInsets.symmetric(vertical: 4))),
                             onPressed: () => Navigator.pop(context),
-                            child: const Text('Cancel'),
+                            child: const Text('X'),
                           ),
                         ),
                     Center(
-                      child: title ??
-                          const Text(
-                            'Choose country',
+                      child:
+                          Text(
+                            title ??'Choose country',
                             textAlign: TextAlign.center,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 22,
                               fontWeight: FontWeight.w500,
                             ),
