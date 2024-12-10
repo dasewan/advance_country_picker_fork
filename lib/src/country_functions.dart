@@ -32,7 +32,6 @@ class AdvanceCountryPicker {
 
     // Convert the list of maps to a list of Country objects
     var list = data.map((e) => Country.fromJson(e)).toList();
-    _countries = list;
     if (filterCountries.isNotEmpty) {
       _countries.clear();
       for (var c in filterCountries) {
@@ -41,8 +40,11 @@ class AdvanceCountryPicker {
             e.countryCode.toLowerCase() == c.toLowerCase());
         _countries.add(x);
       }
+      return _countries;
+    }else{
+      return list;
+
     }
-    return _countries;
   }
 
   Future<Country?> getCountryByCountryCode(String countryCode) async {

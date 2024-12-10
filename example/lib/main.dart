@@ -66,7 +66,8 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          await AdvanceCountryPicker().showCountryPickerDialog(context);
+          await AdvanceCountryPicker().showCountryPickerDialog(context,filteredCountries: ['229', '55', '225', '56', '237', '86', '57', '20', '233', '852', '62', '91', '254'
+            , '52', '234', '63', '48', '221', '255', '256', '84', '27', '260', '998',  '66','992', '252', '40', '48', '51', '92', '60', '254', '226',  '55', '880', '54']);
         },
         tooltip: 'open country picker',
         child: const Icon(Icons.flag),
